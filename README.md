@@ -7,7 +7,7 @@ a u políček s chybou bude vypsána chybová zpráva.
 1. Udělej fork zdrojového repository do svého účtu na GitHubu, případně pokračuj ve svém úkolu z předchozí lekce.
 1. Naklonuj si repository **ze svého účtu** na GitHubu na lokální počítač.
 1. Spusť si naklonovanou aplikaci a otevři v prohlížeči stránku [http://localhost:8080/](http://localhost:8080/). Zobrazí se stránka s textem „TODO“.
-1. Vytvoř přepravku (Java Bean) pro uložení údajů formuláře `RegistraceForm`. Pohlaví zvolený turnus ukládej jako `String`, pro turnus zvol nějaký kód – např. `turnus-1`, `turnus-2` apod.
+1. Vytvoř přepravku (Java Bean) pro uložení údajů formuláře `RegistraceForm`. Pohlaví a zvolený turnus ukládej jako `String`, pro turnus zvol nějaký kód – např. `turnus-1`, `turnus-2` apod.
 1. Vytvoř metodu controlleru, která bude přijímat údaje z formuláře v `RegistraceForm`.
 1. Vytvoř HTML formulář s následujícími údaji. Na vzhledu formuláře tolik nezáleží, pokud ale chceš bez psaní stylů vytvořit docela použitelný formulář,
    můžeš použít knihovnu Bootstrap.

@@ -10,27 +10,35 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Random;
 
 /**
  * Kontroler obsluhující registraci účastníků dětského tábora.
  */
 @Controller
 public class RegistraceController {
-  private final Random random = new Random();
-  @GetMapping("/")
+  @GetMapping("")
   public ModelAndView formular() {
     ModelAndView modelAndView = new ModelAndView("/formular");
     modelAndView.addObject("form", new RegistraceForm());
     return modelAndView;
   }
 
-  @PostMapping("/")
+  @PostMapping("")
   public Object form(@Valid @ModelAttribute("form") RegistraceForm form, BindingResult bindingResult) {
+    LocalDate datumNarozeni = form.getDatumNarozeni();
+    Period period = datumNarozeni.until(LocalDate.now());
+    int vek = period.getYears();
+
 
     if (bindingResult.hasErrors()) {
       return "/formular";
     }
+
+    if (vek < 9 || vek > 15 ) {
+      // Věk mimo požadovaný rozsah (9 až 15 let)
+      return "/formular";
+    }
+
     return new ModelAndView("/rekapitulace")
             .addObject("jmeno", form.getJmeno())
             .addObject("prijmeni", form.getPrijmeni())

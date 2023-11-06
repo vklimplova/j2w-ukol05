@@ -10,7 +10,7 @@ public class RegistraceForm {
     private String jmeno;
     @NotBlank(message = "Příjmení nesmí být prázdné.")
     private String prijmeni;
-    @NotNull(message = "Registrovat jde pouze děti ve věku 9-15.")
+    @NotNull(message = "Vyplňte datum narození dítěte.")
     private LocalDate datumNarozeni;
     @NotBlank(message = "Prosím, vyplňte pohlaví.")
     private String pohlavi;
@@ -20,16 +20,6 @@ public class RegistraceForm {
     private String email;
     @Size(min=9,max=9)
     private String telefon;
-
-    private int vek;
-
-    public int getVek() {
-        return vek;
-    }
-
-    public void setVek(int vek) {
-        this.vek = vek;
-    }
 
     public String getJmeno() {
         return jmeno;

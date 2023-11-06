@@ -13,8 +13,8 @@
 <body>
     <main>
         <h1>Registrace na letní dětský tábor</h1>
-        <form>
-            <h1>Údaje o účastníkovi (dítěti):</h1>
+        <form method="post">
+            <h2>Údaje o účastníkovi (dítěti):</h2>
             <label for="jmeno">Jméno:</label>
             [@spring.formInput path="form.jmeno" /]
             <div class="error">[@spring.showErrors "<br>"/]</div>
@@ -43,10 +43,10 @@
             } /]
             <div class="error">[@spring.showErrors "<br>"/]</div>
 
-            <label for="email">E-mail:</label>
+            <label for="email">E-mail (volitelný údaj):</label>
             [@spring.formInput path="form.email" fieldType="email" /]
 
-            <label for="telefon">Telefon:</label>
+            <label for="telefon">Telefon (volitelný údaj):</label>
             [@spring.formInput path="form.telefon" /]
 
             <div>

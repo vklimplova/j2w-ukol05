@@ -29,8 +29,8 @@
             <label for="pohlavi">Pohlaví:</label>
             [@spring.formSingleSelect path="form.pohlavi" options={
             "": "",
-            "1": "chlapec",
-            "2": "dívka"
+            "chlapec": "chlapec",
+            "dívka": "dívka"
             } /]
             <div class="error">[@spring.showErrors "<br>"/]</div>
 

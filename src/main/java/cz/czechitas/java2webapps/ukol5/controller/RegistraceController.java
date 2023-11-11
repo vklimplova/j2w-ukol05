@@ -29,15 +29,15 @@ public class RegistraceController {
     Period period = datumNarozeni.until(LocalDate.now());
     int vek = period.getYears();
 
-
-    if (bindingResult.hasErrors()) {
-      return "/formular";
-    }
-
     if (vek < 9 || vek > 15 ) {
       // Věk mimo požadovaný rozsah (9 až 15 let)
       return "/formular";
     }
+
+      if (bindingResult.hasErrors()) {
+        return "/formular";
+      }
+
 
     return new ModelAndView("/rekapitulace")
             .addObject("jmeno", form.getJmeno())

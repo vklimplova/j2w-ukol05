@@ -25,12 +25,10 @@ public class RegistraceController {
 
   @PostMapping("")
   public Object form(@Valid @ModelAttribute("form") RegistraceForm form, BindingResult bindingResult) {
-    LocalDate datumNarozeni = form.getDatumNarozeni();
-    Period period = datumNarozeni.until(LocalDate.now());
-    int vek = period.getYears();
 
-    if (vek < 9 || vek > 15 ) {
+    if (form.getVek() < 9 || form.getVek() > 15 ) {
       // Věk mimo požadovaný rozsah (9 až 15 let)
+      bindingResult.hasErrors();
       return "/formular";
     }
 

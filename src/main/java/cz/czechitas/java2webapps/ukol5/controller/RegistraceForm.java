@@ -3,6 +3,7 @@ package cz.czechitas.java2webapps.ukol5.controller;
 import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class RegistraceForm {
 
@@ -20,6 +21,10 @@ public class RegistraceForm {
     private String email;
 
     private String telefon;
+
+    @Min(9)
+    @Max(15)
+    private int vek;
 
     public String getJmeno() {
         return jmeno;
@@ -75,6 +80,13 @@ public class RegistraceForm {
 
     public void setTelefon(String telefon) {
         this.telefon = telefon;
+    }
+
+    public int getVek(){ return vek; }
+
+    public void setVek(int vek){
+        Period period = datumNarozeni.until(LocalDate.now());
+        this.vek = period.getYears();
     }
 
 }

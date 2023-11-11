@@ -26,16 +26,19 @@ public class RegistraceController {
   @PostMapping("")
   public Object form(@Valid @ModelAttribute("form") RegistraceForm form, BindingResult bindingResult) {
 
-    if (form.getVek() < 9 || form.getVek() > 15 ) {
-      // Věk mimo požadovaný rozsah (9 až 15 let)
-      bindingResult.hasErrors();
-      return "/formular";
+    LocalDate datumNarozeni = form.getDatumNarozeni();
+    if (datumNarozeni != null) {
+      Period period = datumNarozeni.until(LocalDate.now());
+      int vek = period.getYears();
+
+      if (vek <= 9 || vek >= 15) {
+        return "/rozmezi_vek";
+      }
     }
 
       if (bindingResult.hasErrors()) {
         return "/formular";
       }
-
 
     return new ModelAndView("/rekapitulace")
             .addObject("jmeno", form.getJmeno())
